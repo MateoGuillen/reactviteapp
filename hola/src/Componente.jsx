@@ -1,3 +1,4 @@
+import { useState } from "react"
 export function Componente(
   {
     children,
@@ -10,6 +11,12 @@ export function Componente(
   }
   
   ){
+
+    const [isclick, setisclick] = useState(false)
+    const texto = isclick ? 'True' : 'False'
+    const handleClick = ()=>{
+      setisclick(!isclick)
+    }
   return(
     <article>
       <header>
@@ -18,13 +25,14 @@ export function Componente(
       </header>
     
       <aside>
-        <button>
-          hola
+        <button onClick={handleClick}>
+          {texto}
         </button>
         {elemento}
         <h1>{children}</h1>
         <h1>{funcion}</h1>
       </aside>
+
     </article>
       
     
